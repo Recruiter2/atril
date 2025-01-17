@@ -28,6 +28,15 @@ void	mdvi_set_color(DviContext *dvi, Ulong fg, Ulong bg)
 			dvi->device.set_color(dvi->device.device_data, fg, bg);
 		dvi->curr_fg = fg;
 		dvi->curr_bg = bg;
+
+		// Set the background color to the app background
+        // Replace the following line with the code to set the app background
+        dvi->curr_bg = bg;
+
+		// Invert the colors of chars
+        Ulong temp = dvi->curr_fg;
+        dvi->curr_fg = dvi->curr_bg;
+        dvi->curr_bg = temp;
 	}
 }
 
